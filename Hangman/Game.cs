@@ -6,6 +6,9 @@ public class Game
     public string ChosenWord => Word.ChosenWord;
     public int WordLength => Word.Length;
 
+    private string _attempt = "";
+    private string _used = "", _correct = "", _incorrect = ""; 
+
     public Game()
     {
         Word = new Word();
@@ -13,6 +16,14 @@ public class Game
 
     public void Round()
     {
+        
+    }
+
+    private bool CheckLetter(char l) => Word.IsAccepted(l);
+
+    private void SetupConsole()
+    {
+        Console.Clear();
         
     }
 
