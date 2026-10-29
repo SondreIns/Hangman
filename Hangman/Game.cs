@@ -8,15 +8,17 @@ public class Game
 
     private string _attempt = "";
     private string _used = "", _correct = "ABC", _incorrect = "";
+    private int _maxAttempts, _currentAttempts = 0;
 
-    public Game()
+    public Game(int numAttempts)
     {
         Word = new Word();
+        _maxAttempts = numAttempts;
     }
 
     public void Round()
     {
-        ConsoleWriter.WriteLine(BuildString(), ConsoleColor.Green);
+        SetupConsole();
     }
 
     private bool CheckLetter(char l) => Word.IsAccepted(l);
@@ -24,6 +26,17 @@ public class Game
     private void SetupConsole()
     {
         Console.Clear();
+        BuildUI();
+    }
+
+    private void BuildUI()
+    {
+        ConsoleWriter.Write(BuildString(), ConsoleColor.Green);
+        ConsoleWriter.Write(" | ", ConsoleColor.White);
+        ConsoleWriter.Write($"Attempt: {_currentAttempts} / {_maxAttempts}", ConsoleColor.Cyan);
+        ConsoleWriter.Write(" | ", ConsoleColor.White);
+        ConsoleWriter.Write("Incorrect: ", ConsoleColor.Yellow);
+        ConsoleWriter.Write(_incorrect, ConsoleColor.Red);
     }
 
     private string BuildString()
