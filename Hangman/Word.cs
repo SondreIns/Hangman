@@ -6,7 +6,7 @@ public class Word
     public char[] AcceptableLetter  {get; } = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
                                                'N' ,'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
     public int Length => ChosenWord.Length;
-    private string[] words = {"Andromeda", "Baffled", "Chasing"};
+    private string[] words = {"ANDROMEDA", "BAFFLED", "CHASING"};
 
     public Word()
     {

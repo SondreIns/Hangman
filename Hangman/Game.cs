@@ -7,7 +7,7 @@ public class Game
     public int WordLength => Word.Length;
 
     private string _attempt = "";
-    private string _used = "", _correct = "", _incorrect = ""; 
+    private string _used = "", _correct = "ABC", _incorrect = "";
 
     public Game()
     {
@@ -16,7 +16,7 @@ public class Game
 
     public void Round()
     {
-        
+        ConsoleWriter.WriteLine(BuildString(), ConsoleColor.Green);
     }
 
     private bool CheckLetter(char l) => Word.IsAccepted(l);
@@ -24,7 +24,26 @@ public class Game
     private void SetupConsole()
     {
         Console.Clear();
-        
+    }
+
+    private string BuildString()
+    {
+        string result = "";
+        foreach (char l in ChosenWord)
+        {
+            bool correct = false;
+            foreach (char le in _correct)
+            {
+                if (l == le)
+                {
+                    result += le;
+                    correct = true;
+                }
+                if(correct) break;
+            }
+            if (!correct) result += '_';
+        }
+        return result;
     }
 
 }

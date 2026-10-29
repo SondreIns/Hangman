@@ -1,0 +1,15 @@
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\bin\Debug\net10.0\Hangman.exe
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\bin\Debug\net10.0\Hangman.deps.json
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\bin\Debug\net10.0\Hangman.runtimeconfig.json
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\bin\Debug\net10.0\Hangman.dll
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\bin\Debug\net10.0\Hangman.pdb
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.AssemblyInfoInputs.cache
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.AssemblyInfo.cs
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.csproj.CoreCompileInputs.cache
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.sourcelink.json
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.dll
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\refint\Hangman.dll
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.pdb
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\Hangman.genruntimeconfig.cache
+C:\Users\Fyrre\Documents\Kodehode\Hangman\Hangman\obj\Debug\net10.0\ref\Hangman.dll
