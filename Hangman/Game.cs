@@ -16,12 +16,53 @@ public class Game
         _maxAttempts = numAttempts;
     }
 
-    public void Round()
+    public void Start()
     {
-        SetupConsole();
+        while (_currentAttempts < _maxAttempts)
+        {
+            Round();
+        }
     }
 
-    private bool CheckLetter(char l) => Word.IsAccepted(l);
+    private void Round()
+    {
+        SetupConsole();
+        InputRound();
+    }
+
+    private void InputRound()
+    {
+        string? input = Console.ReadLine();
+        char l = char.ToUpper(input[0]);
+        if (!CheckLetter(l)) InputRound();
+        else
+        {
+            _used += l;
+            Evaluate(l);
+            _currentAttempts++;
+        }
+    }
+
+    private void Evaluate(char l)
+    {
+        bool correct = false;
+        foreach(char letter in ChosenWord)
+        {
+            if(l == letter)
+            {
+                correct = true;
+                break;
+            }
+        }
+
+        if(correct) _correct += l;
+        else _incorrect += l;
+    }
+
+    private bool CheckLetter(char l)
+    {
+        return !_used.Contains(l) && Word.IsAccepted(l);
+    }
 
     private void SetupConsole()
     {
@@ -37,6 +78,7 @@ public class Game
         ConsoleWriter.Write(" | ", ConsoleColor.White);
         ConsoleWriter.Write("Incorrect: ", ConsoleColor.Yellow);
         ConsoleWriter.Write(_incorrect, ConsoleColor.Red);
+        Console.WriteLine();
     }
 
     private string BuildString()
