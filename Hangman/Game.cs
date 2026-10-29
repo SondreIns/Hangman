@@ -8,7 +8,7 @@ public class Game
 
     private string _attempt = "";
     private string _used = "", _correct = "ABC", _incorrect = "";
-    private int _maxAttempts, _currentAttempts = 0;
+    private int _numCorrect = 0, _maxAttempts, _currentAttempts = 0;
 
     public Game(int numAttempts)
     {
@@ -18,10 +18,17 @@ public class Game
 
     public void Start()
     {
-        while (_currentAttempts < _maxAttempts)
+        bool finished = false;
+        while (!finished)
         {
             Round();
+            BuildString();
+            finished = CheckFinish();
         }
+        Console.Clear();
+        BuildUI();
+        Console.WriteLine("finished");
+        Console.ReadKey();
     }
 
     private void Round()
@@ -33,13 +40,13 @@ public class Game
     private void InputRound()
     {
         string? input = Console.ReadLine();
+        if(input == string.Empty) input = "å";
         char l = char.ToUpper(input[0]);
         if (!CheckLetter(l)) InputRound();
         else
         {
             _used += l;
             Evaluate(l);
-            _currentAttempts++;
         }
     }
 
@@ -56,7 +63,16 @@ public class Game
         }
 
         if(correct) _correct += l;
-        else _incorrect += l;
+        else 
+        {
+            _incorrect += l;
+            _currentAttempts++;
+        }
+    }
+
+    private bool CheckFinish()
+    {
+        return _currentAttempts >= _maxAttempts || _numCorrect == WordLength;
     }
 
     private bool CheckLetter(char l)
@@ -84,6 +100,7 @@ public class Game
     private string BuildString()
     {
         string result = "";
+        _numCorrect = 0;
         foreach (char l in ChosenWord)
         {
             bool correct = false;
@@ -93,6 +110,7 @@ public class Game
                 {
                     result += le;
                     correct = true;
+                    _numCorrect++;
                 }
                 if(correct) break;
             }
