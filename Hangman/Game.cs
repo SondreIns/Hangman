@@ -39,7 +39,12 @@ public class Game
         if(_numCorrect == WordLength)
             ConsoleWriter.WriteLine("Winner winner chicken dinner", ConsoleColor.Green);
         else
+        {
             ConsoleWriter.WriteLine("Loser loser goose loser", ConsoleColor.Red);
+            ConsoleWriter.Write("The correct word was ", ConsoleColor.Cyan);
+            ConsoleWriter.Write(ChosenWord + "\n", ConsoleColor.Yellow);
+        }
+           
         Console.ReadKey();
     }
 
