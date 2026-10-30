@@ -9,9 +9,19 @@ public class Game
     private string _used = "", _correct = "ABC", _incorrect = "";
     private int _numCorrect = 0, _maxAttempts, _currentAttempts = 0;
 
-    public Game(int numAttempts)
+    public Game()
     {
         Word = new Word();
+    }
+
+    public void Setup()
+    {
+        Console.Clear();
+        ConsoleWriter.WriteLine("Enter number of attempts:", ConsoleColor.Magenta);
+        string? input = Console.ReadLine();
+        if (!int.TryParse(input, out int numAttempts)) numAttempts = 5;
+        if (numAttempts > 10) numAttempts = 10;
+        else if (numAttempts < 0) numAttempts = 1;
         _maxAttempts = numAttempts;
     }
 
