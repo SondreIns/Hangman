@@ -6,7 +6,7 @@ public class Game
     public string ChosenWord => Word.ChosenWord;
     public int WordLength => Word.Length;
 
-    private string _used = "", _correct = "ABC", _incorrect = "";
+    private string _used = "ABC", _correct = "ABC", _incorrect = "";
     private int _numCorrect = 0, _maxAttempts, _currentAttempts = 0;
 
     public Game()
@@ -54,7 +54,11 @@ public class Game
         string? input = Console.ReadLine();
         if(input == string.Empty || input == null) input = "å";
         char l = char.ToUpper(input[0]);
-        if (!CheckLetter(l)) InputRound();
+        if (!CheckLetter(l))
+        {
+            ConsoleWriter.WriteLine("Enter a valid, unused character", ConsoleColor.DarkRed);
+            InputRound();
+        }
         else
         {
             _used += l;
