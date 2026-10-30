@@ -6,7 +6,6 @@ public class Game
     public string ChosenWord => Word.ChosenWord;
     public int WordLength => Word.Length;
 
-    private string _attempt = "";
     private string _used = "", _correct = "ABC", _incorrect = "";
     private int _numCorrect = 0, _maxAttempts, _currentAttempts = 0;
 
@@ -27,7 +26,10 @@ public class Game
         }
         Console.Clear();
         BuildUI();
-        Console.WriteLine("finished");
+        if(_numCorrect == WordLength)
+            ConsoleWriter.WriteLine("Winner winner chicken dinner", ConsoleColor.Green);
+        else
+            ConsoleWriter.WriteLine("Loser loser goose loser", ConsoleColor.Red);
         Console.ReadKey();
     }
 
@@ -40,7 +42,7 @@ public class Game
     private void InputRound()
     {
         string? input = Console.ReadLine();
-        if(input == string.Empty) input = "å";
+        if(input == string.Empty || input == null) input = "å";
         char l = char.ToUpper(input[0]);
         if (!CheckLetter(l)) InputRound();
         else
