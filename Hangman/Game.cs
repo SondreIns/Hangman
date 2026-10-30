@@ -109,9 +109,10 @@ public class Game
 
     private void BuildUI()
     {
+        int overFlow = _currentAttempts == _maxAttempts ? 0 : 1;
         ConsoleWriter.Write(BuildString(), ConsoleColor.Green);
         ConsoleWriter.Write(" | ", ConsoleColor.White);
-        ConsoleWriter.Write($"Attempt: {_currentAttempts} / {_maxAttempts}", ConsoleColor.Cyan);
+        ConsoleWriter.Write($"Attempt: {_currentAttempts + overFlow} / {_maxAttempts}", ConsoleColor.Cyan);
         ConsoleWriter.Write(" | ", ConsoleColor.White);
         ConsoleWriter.Write("Incorrect: ", ConsoleColor.Yellow);
         ConsoleWriter.Write(_incorrect, ConsoleColor.Red);
