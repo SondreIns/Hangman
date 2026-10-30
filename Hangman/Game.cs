@@ -21,7 +21,7 @@ public class Game
         string? input = Console.ReadLine();
         if (!int.TryParse(input, out int numAttempts)) numAttempts = 5;
         if (numAttempts > 10) numAttempts = 10;
-        else if (numAttempts < 0) numAttempts = 1;
+        else if (numAttempts < 1) numAttempts = 1;
         _maxAttempts = numAttempts;
     }
 
