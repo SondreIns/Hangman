@@ -6,7 +6,7 @@ public class Game
     public string ChosenWord => Word.ChosenWord;
     public int WordLength => Word.Length;
 
-    private string _used = "ABC", _correct = "ABC", _incorrect = "";
+    private string _used = "", _correct = "", _incorrect = "";
     private int _numCorrect = 0, _maxAttempts, _currentAttempts = 0;
 
     public Game()
