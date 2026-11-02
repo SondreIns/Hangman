@@ -31,7 +31,6 @@ public class Game
         while (!finished)
         {
             Round();
-            BuildString();
             finished = CheckFinish();
         }
         Console.Clear();
@@ -58,12 +57,13 @@ public class Game
     {
         SetupConsole();
         InputRound();
+        BuildString();
     }
 
     private void InputRound()
     {
         string? input = Console.ReadLine();
-        if(input == string.Empty || input == null) input = "å";
+        if(string.IsNullOrEmpty(input)) input = "å";
         char l = char.ToUpper(input[0]);
         if (!CheckLetter(l))
         {
@@ -128,7 +128,7 @@ public class Game
     private string BuildString()
     {
         string result = "";
-        _numCorrect = 0;
+        int correctNum = 0;
         foreach (char l in ChosenWord)
         {
             bool correct = false;
@@ -138,12 +138,13 @@ public class Game
                 {
                     result += le;
                     correct = true;
-                    _numCorrect++;
+                    correctNum++;
                 }
                 if(correct) break;
             }
             if (!correct) result += '_';
         }
+        _numCorrect = correctNum;
         return result;
     }
 
