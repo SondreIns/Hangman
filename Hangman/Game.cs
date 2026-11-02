@@ -44,8 +44,14 @@ public class Game
             ConsoleWriter.Write("The correct word was ", ConsoleColor.Cyan);
             ConsoleWriter.Write(ChosenWord + "\n", ConsoleColor.Yellow);
         }
-           
-        Console.ReadKey();
+    }
+
+    public bool End()
+    {
+        ConsoleWriter.WriteLine("Again? y/n", ConsoleColor.DarkCyan);
+        string? input = Console.ReadLine();
+        if(string.IsNullOrEmpty(input)) input = "n";
+        return input.Equals("y");
     }
 
     private void Round()
